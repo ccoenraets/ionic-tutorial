@@ -1,3 +1,9 @@
+.center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 img {
     max-width: 100%;
     border: solid 1px #eee;
@@ -17,7 +23,7 @@ blockquote {
 
 .btn-lg {
     border-radius: 2px;
-    background-color: #049EC4;
+    background-color: #3878E2;
     color: #FFFFFF !important;
     border-color: #FFFFFF;
 }
@@ -26,7 +32,7 @@ blockquote {
     margin-top: -20px;
     padding-bottom: 30px;
     padding-top: 30px;
-    background-color: #049EC4;
+    background-color: #3878E2;
     color: #FFFFFF
 }
 
@@ -34,12 +40,19 @@ blockquote {
     font-size: 50px;
     font-weight: 300;
     font-style: normal;
+    margin-top: 8px;
+    margin-bottom: 28px;
 }
 
 .jumbotron a:hover {
     border-color: #cccccc;
 }
 
+.jumbotron img {
+    border: none;
+    /*padding:30px;*/
+    max-height: 200px;
+}
 
 .right-nav {
     padding-top: 20px;

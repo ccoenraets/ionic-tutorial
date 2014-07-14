@@ -6,7 +6,7 @@ In this tutorial, you build a conference application that allows conference atte
 
 1. Make sure you have an up-to-date version of Node.js installed on your system. If you don't have Node.js installed on your system, you can install it from [here](http://nodejs.org/).
 
-1. Open a terminal window (Mac) or a command window (Windows), and install Cordova and Ionic:
+1. Open a terminal window (Mac) or a Command window (Windows), and install Cordova and Ionic:
 
   ```
   npm install -g cordova ionic
@@ -43,7 +43,7 @@ In this tutorial, you build a conference application that allows conference atte
 
   > The supporting files feature a Node.js backend that exposes the conference data through a set of REST services.
 
-1. Open a terminal window (Mac) or a command window (Windows), and navigate (cd) to the **ionic-tutorial/server** directory
+1. Open a terminal window (Mac) or a Command window (Windows), and navigate (cd) to the **ionic-tutorial/server** directory
 
 1. Install the server dependencies:
 
