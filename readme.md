@@ -1,5 +1,5 @@
-# Apache Cordova Tutorial
+# Ionic Tutorial
 
-In this tutorial, you will learn strategies and best practices to build native-like mobile applications with HTML, JavaScript, and CSS. You will build an Apache Cordova (aka PhoneGap) Employee Directory application from scratch using the Single Page Architecture, HTML templates, touch events, and performance optimization techniques.
+In this tutorial, you learn how to build a native-like mobile application with Ionic and AngularJS. You build a Conference application that allows the attendees of the conference to browse through the list of sessions, and share information on Facebook.
 
-Follow the step-by-step instructions available here: http://ccoenraets.github.io/cordova-tutorial/
+Follow the step-by-step instructions available here: http://ccoenraets.github.io/ionic-tutorial/

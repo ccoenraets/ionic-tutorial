@@ -1,11 +1,13 @@
 var express = require('express'),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
-    employees = require('./routes/employees'),
+    sessions = require('./routes/sessions'),
     app = express();
 
 app.use(bodyParser());          // pull information from html in POST
 app.use(methodOverride());      // simulate DELETE and PUT
+
+app.use(express.static('../conference/www'));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
@@ -14,8 +16,8 @@ app.all('*', function(req, res, next) {
     next();
 });
 
-app.get('/employees', employees.findAll);
-app.get('/employees/:id', employees.findById);
+app.get('/sessions', sessions.findAll);
+app.get('/sessions/:id', sessions.findById);
 
 app.set('port', process.env.PORT || 5000);
 
