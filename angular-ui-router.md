@@ -63,7 +63,7 @@ Modify the fallback route to default to the list of sessions (last line in app.j
   </ion-item>
   ```
 
-## Step 5: Test the Application
+## Step 5: Test the application
 
 1. Open a browser and access the following URL:
 

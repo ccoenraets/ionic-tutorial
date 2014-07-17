@@ -46,6 +46,7 @@ blockquote {
 
 .jumbotron a:hover {
     border-color: #cccccc;
+    background-color: #2878E2;
 }
 
 .jumbotron img {

@@ -13,7 +13,7 @@ through a set of REST services.
     git clone https://github.com/ccoenraets/ionic-tutorial
     ```
 
-  If you downloaded the zip file, unzip it anywhere on your file system.
+  > If you downloaded the zip file, unzip it anywhere on your file system.
 
 1. Open a terminal window (Mac) or a command window (Windows), and navigate (cd) to the **ionic-tutorial/server** 
 directory
@@ -29,6 +29,8 @@ directory
   ```
   node server
   ```
+  
+  > If you get an error, make sure you don't have another server listening on port 5000.
 
 1. Test the REST services. Open a browser and access the following URLs:
   - [http://localhost:5000/sessions](http://localhost:5000/sessions) (for a list of conference sessions returned as a JSON document)

@@ -4,7 +4,7 @@ title: Ionic Tutorial
 ---
 In this tutorial, you learn how to build a native-like mobile application with  [Ionic]
 (http://ionicframework.com/) and [AngularJS](https://angularjs.org/). 
-You build a Conference application that allows the attendees of the conference to browse through the list of sessions, 
+You build a Conference application that allows the attendees of a conference to browse through the list of sessions, 
 and share information on Facebook. 
 
 ## What You Will Learn:
@@ -13,15 +13,13 @@ and share information on Facebook.
 
 - How to start from one of the Ionic starter apps
 
-- How to build a modern mobile UI with a side menu, cards, hardware-accelerated transitions, etc.
+- How to build a modern mobile UI using Ionic components such as side menu, cards, action sheets, etc. 
 
 - How to create a service using the Angular resource module (ngResource) to access REST services
 
 - How to use controllers
 
 - How to use routing
-
-- How to create templates using Ionic directives
 
 - How to login with Facebook, and publish information to your feed
 
@@ -34,12 +32,12 @@ and share information on Facebook.
 
 >A mobile device or a Mobile SDK is **not** a requirement for this tutorial. However, 
 if you want to run the application on an iOS and/or an Android device or emulator, 
-you need the iOS and/or Android SDK installed on your system. If you don't want to install a Mobile SDK, you'll be able to test your application in a browser on your computer.
+you need the iOS SDK and/or the Android SDK installed on your system. If you don't want to install a Mobile SDK, you'll be able to test your application in a browser on your computer.
 
 ## Issues
 
 - Please create an issue [here](https://github.com/ccoenraets/ionic-tutorial/issues) if you run
-into any problem or if you have a suggestion to improve this workshop.
+into any problem or if you have a suggestion to improve this tutorial.
 
 - You can also use the Comments section at the bottom of each module to ask a question or report a problem.
 

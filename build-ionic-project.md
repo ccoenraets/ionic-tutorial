@@ -3,15 +3,27 @@ layout: module
 title: Module 8&#58; Building the Application
 ---
 
-This module is optional. To build the application for iOS and/or Android, you need the iOS and/or Android SDK 
+This module is optional. To build the application for iOS and/or Android, you need the iOS SDK and/or the Android SDK 
 installed on your system.
+
+## Add the InAppBrowser plugin
+
+The InAppBrowser plugin is used in Module 9 to support Facebook login when running in Cordova.
+
+1. On the command line, navigate to the **ionic-tutorial/conference** directory
+
+1. Add the InAppBrowser plugin 
+
+    ```
+    cordova plugins add org.apache.cordova.inappbrowser
+    ```
 
 ## Building for iOS
 
 > You need the iOS SDK installed on your computer to build an iOS version of your application 
 using the steps below.
 
-1. On the command line, navigate to the **ionic-tutorial/conference** directory
+1. On the command line, make sure you are in the **ionic-tutorial/conference** directory
 
 1. Add support for the iOS platform:
 
@@ -25,7 +37,7 @@ using the steps below.
     ionic build ios
     ```
 
-1. Open **Workshop.xcodeproj** in the **workshop/platforms/ios** directory
+1. Open **conference.xcodeproj** in the **conference/platforms/ios** directory
 
 1. In Xcode, run the application on a device connected to your computer or in the iOS emulator
 
@@ -35,7 +47,9 @@ using the steps below.
 > You need the Android SDK installed on your computer to build an Android version of your 
 application using the steps below.
 
-1. On the command line, navigate to the **ionic-tutorial/conference** directory
+1. Make sure the Android SDK and the ant build tool are available on your system. The Android SDK is available [here](http://developer.android.com/sdk/index.html). **Both the android and ant tools must be available in your path**. To test your configuration, you should be able to execute both **android** and **ant** from the command line.
+
+1. On the command line, make sure you are in the **ionic-tutorial/conference** directory
 
 1. Add support for the Android platform:
 

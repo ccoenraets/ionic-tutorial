@@ -8,7 +8,7 @@ you create a Session service that uses the [Angular resource module](https://doc
 
 ## Steps
 
-1. In the **conference/www/js** folder, create a file named **services.js**
+1. In the **conference/www/js** directory, create a file named **services.js**
 
 2. In services.js, define a **module** named **starter.services** with a dependency on ngResource:
 
@@ -25,15 +25,18 @@ you create a Session service that uses the [Angular resource module](https://doc
         return $resource('http://localhost:5000/sessions/:sessionId');
     });
     ```
+    
+    > In a real-life application, you would typically externalize the server parameters in a config module.
 
 1. The starter.services module you just created has a dependency on the Angular resource module which is
- not included by default. Open index.html and add a script tag to include angular-resource.min.js (right after ionic-bundle.js):
+ not included by default. Open index.html and add a script tag to include **angular-resource.min.js** (right after 
+ ionic-bundle.js):
 
   ```
   <script src="lib/ionic/js/angular/angular-resource.min.js"></script>
   ```
 
-1. Add a script tag to include the services.js file you just created (right after app.js):
+1. Add a script tag to include the **services.js** file you just created (right after app.js):
 
   ```
   <script src="js/services.js"></script>

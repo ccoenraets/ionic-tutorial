@@ -5,7 +5,7 @@ title: Module 9&#58; Facebook Integration
 In this module, you add Facebook integration to your application. You allow users to login with Facebook, 
 view their profile, and share their favorite sessions on their feed.
 
-In this tutorial, you use [OpenFB](https://github.com/ccoenraets/OpenFB) to perform the integration. OpenFB is a 
+> In this tutorial, you use [OpenFB](https://github.com/ccoenraets/OpenFB) to perform the integration. OpenFB is a 
 micro-library that lets you integrate 
 your JavaScript applications with Facebook. It works for both browser-based and Cordova/PhoneGap apps. It also 
 doesn't have any dependency: You don't need the Facebook plugin when running in Cordova. You also don't need the 
@@ -30,7 +30,7 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 1. Click **Save Changes**  
 
 
-## Step 2: Add Facebook Login
+## Step 2: Add Facebook login
 
 1. Add the openfb files to your application
   - Copy **openfb.js** from ionic-tutorial/resources to conference/www/lib.
@@ -48,7 +48,8 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 
   ```
 
-1. Open login.html in the **templates** directory. Add a **Login with Facebook** button right after the existing **Log 
+1. Open login.html in the **www/conference/templates** directory. Add a **Login with Facebook** button right after the 
+existing **Log 
 In** button: 
 
     ```
@@ -59,9 +60,9 @@ In** button:
     </label>
     ```
 
-    > Notice that the fbLogin() method is called on ng-click. You define the fbLogin() function in the next step.
+    > Notice that fbLogin() is called on ng-click. You define the fbLogin() function in the next step.
 
-1. Open conference/www/js/controllers.js, and add the fbLogin function to the AppCtrl controller (right after the 
+1. Open conference/www/js/controllers.js, and add the fbLogin function in the AppCtrl controller (right after the 
 doLogin function):
 
     ```
@@ -93,7 +94,7 @@ doLogin function):
 
 ## Step 3: Display the User Profile
 
-1. Create a **template** for the user profile screen. In the templates folder, create a new file named **profile.html** and implement it as follows:
+1. Create a **template** for the user profile view. In the conference/www/templates directory, create a new file named **profile.html** and implement it as follows:
 
     ```
     {% raw %}
@@ -115,8 +116,8 @@ doLogin function):
 
 1. Create a **controller**. Open controllers.js, and add the following controller:
 
-  ```
-  .controller('ProfileCtrl', function($scope) {
+    ```
+    .controller('ProfileCtrl', function($scope) {
       openFB.api({
           path: '/me',
           params: {fields: 'id,name'},
@@ -129,8 +130,8 @@ doLogin function):
               alert('Facebook error: ' + error.error_description);
           }
       });
-  });
-  ```
+   a });
+    ```
 
 1. Open app.js, and add the following route:
 
@@ -161,7 +162,7 @@ doLogin function):
     - Open the side menu and select **Profile**
 
 
-## Step 4: Publish to Your Feed
+## Step 4: Publish to your feed
 
 1. Open controllers.js, and add a share function to the SessionCtrl controller:
 
@@ -171,19 +172,20 @@ doLogin function):
             method: 'POST',
             path: '/me/feed',
             params: {
-                message: "I'll be attending: '" + $scope.session.title + "' by " + 
-                                                  $scope.session.speaker
+                message: "I'll be attending: '" + $scope.session.title + "' by " +
+                    $scope.session.speaker
             },
-            success: function() {
+            success: function () {
                 alert('The session was shared on Facebook');
             },
-            error: function() {
+            error: function () {
                 alert('An error occurred while sharing this session on Facebook');
             }
         });
+    };
     ```
 
-1. Open session.html in the templates directory and add an ng-click handler: invoke the 
+1. Open session.html in the templates directory and add an ng-click handler to the Share button: invoke the 
 share function: 
 
     ```
@@ -202,11 +204,25 @@ share function:
     - Check your feed on Facebook
 
 
+## Step 5: Test Facebook integration on device (optional)
+
+1. Build your application for a specific platform following the steps described in module 8:
+
+    ```
+    ionic build ios
+    ```
+
+    and/or
+ 
+    ```
+    ionic build android
+    ```
+ 
+2. Run and test your application on an iOS or Android device or emulator 
+
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
 <a href="build-ionic-project.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 
 Previous</a>
 </div>
 </div>
-
-

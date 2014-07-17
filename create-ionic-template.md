@@ -2,12 +2,12 @@
 layout: module
 title: Module 6&#58; Creating Templates
 ---
-In this module, you create two templates: sessions.html to display a list of session, 
+In this module, you create two templates: sessions.html to display a list of sessions, 
 and session.html to display the details of a particular session.
 
-## Step 1: Create the playlists template
+## Step 1: Create the sessions template
 
-1. In the conference/www/templates directory, rename playlists.html (plural) to **sessions.html**
+1. In the **conference/www/templates directory**, rename playlists.html (plural) to **sessions.html**
 
 1. Implement the template as follows:
 
@@ -30,7 +30,7 @@ and session.html to display the details of a particular session.
   > Notice the use of the ng-repeat directive to display the list of sessions
 
 
-## Step 2: Create the playlist template
+## Step 2: Create the session template
 
 1. Rename playlist.html (singular) to **session.html**
  

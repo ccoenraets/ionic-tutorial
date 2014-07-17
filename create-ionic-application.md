@@ -15,7 +15,7 @@ starter app.
   ionic start conference sidemenu
   ```
 
-1. Run the starter application. Open a browser and access the following URL:
+1. Run the application. Open a browser and access the following URL:
 
   [http://localhost:5000](http://localhost:5000)
 
@@ -32,12 +32,17 @@ starter app.
   serve](http://ionicframework.com/docs/guide/testing.html).
 
 
-1. In the starter application, open the side menu ("hamburger" icon in the upper left corner) and select **Playlists**. 
+1. Back in the application, open the side menu ("hamburger" icon in the upper left corner) and select 
+**Playlists**. 
 Select a playlist in the list to see the details view (not much to see at this point).
 
   In the next modules, you will replace the playlists with a list of conference sessions retrieved from the 
   server using the REST services you experimented with in the previous module.
 
+1. Open the side menu again and select **Login**. Click the Login button to close the window (Login is not 
+implemented in the starter app).
+
+    In the last module of this tutorial you will implement Login using Facebook.
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
