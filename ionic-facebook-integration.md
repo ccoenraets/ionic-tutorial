@@ -118,19 +118,19 @@ doLogin function):
 
     ```
     .controller('ProfileCtrl', function($scope) {
-      openFB.api({
-          path: '/me',
-          params: {fields: 'id,name'},
-          success: function(user) {
-              $scope.$apply(function() {
-                  $scope.user = user;
-              });
-          },
-          error: function(error) {
-              alert('Facebook error: ' + error.error_description);
-          }
-      });
-   a });
+        openFB.api({
+            path: '/me',
+            params: {fields: 'id,name'},
+            success: function(user) {
+                $scope.$apply(function() {
+                    $scope.user = user;
+                });
+            },
+            error: function(error) {
+                alert('Facebook error: ' + error.error_description);
+            }
+        });
+    });
     ```
 
 1. Open app.js, and add the following route:
