@@ -128,7 +128,9 @@ var openFB = (function () {
         loginCallback = callback;
         loginProcessed = false;
 
-//        logout();
+        if (runningInCordova) {
+            oauthRedirectURL = "https://www.facebook.com/connect/login_success.html";
+        }
 
         startTime = new Date().getTime();
         loginWindow = window.open(FB_LOGIN_URL + '?client_id=' + fbAppId + '&redirect_uri=' + oauthRedirectURL +
