@@ -11,9 +11,9 @@ and session.html to display the details of a particular session.
 
 1. Implement the template as follows:
 
-  ```
-  {% raw %}
-  <ion-view title="Sessions">
+    ```
+    {% raw %}
+    <ion-view title="Sessions">
       <ion-nav-buttons side="left">
           <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
       </ion-nav-buttons>
@@ -23,9 +23,9 @@ and session.html to display the details of a particular session.
                         href="#/app/sessions/{{session.id}}">{{session.title}}</ion-item>
           </ion-list>
       </ion-content>
-  </ion-view>
-  {% endraw %}
-  ```
+    </ion-view>
+    {% endraw %}
+    ```
 
   > Notice the use of the ng-repeat directive to display the list of sessions
 
