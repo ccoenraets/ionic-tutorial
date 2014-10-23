@@ -33,13 +33,13 @@ view, and app.session loads the session details view.
 
     ```
     .state('app.session', {
-      url: "/sessions/:sessionId",
-      views: {
-          'menuContent': {
+        url: "/sessions/:sessionId",
+        views: {
+            'menuContent': {
               templateUrl: "templates/session.html",
               controller: 'SessionCtrl'
           }
-      }
+        }
     });
     ```
 
