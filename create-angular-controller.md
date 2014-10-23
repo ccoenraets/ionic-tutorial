@@ -16,9 +16,9 @@ starter.services as a dependency to the starter.controller module:
 
 1. Add **starter.services** as a dependency to make the Session service available to the controllers:
 
-  ```
-  angular.module('starter.controllers', ['starter.services'])
-  ```
+    ```
+    angular.module('starter.controllers', ['starter.services'])
+    ```
 
 ## Step 2: Implement the Session List Controller
 
