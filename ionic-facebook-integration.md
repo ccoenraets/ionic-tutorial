@@ -41,7 +41,6 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
         ```
 
 1. Open conference/www/js/app.js, and initialize OpenFB in the config() function (on the first line, before $stateProvider). Replace **YOUR&#95;FB&#95;APP_ID** with the App Id of your Facebook application.
-
     ```
     openFB.init({appId: 'YOUR_FB_APP_ID'});
     ```
