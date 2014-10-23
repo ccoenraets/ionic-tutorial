@@ -11,42 +11,42 @@ starter app.
 
 1. Using the Ionic CLI, create an application named **conference** based on the **sidemenu** starter app:
 
-  ```
-  ionic start conference sidemenu
-  ```
+    ```
+    ionic start conference sidemenu
+    ```
 
 1. Navigate to the conference folder 
 
-  ```
-  cd conference
-  ```
+    ```
+    cd conference
+    ```
 
 1. Start the application in a browser using **ionic serve**.
 
-  ```
-  ionic serve
-  ```
+    ```
+    ionic serve
+    ```
 
-  > NOTE: Because of cross domain policy issues (specifically when loading templates), 
-  you have to load the application from a server (using the http protocol and not the file protocol). **ionic serve** is a lightweight local web server with live reload.
+    > NOTE: Because of cross domain policy issues (specifically when loading templates), 
+    you have to load the application from a server (using the http protocol and not the file protocol). **ionic serve** is a lightweight local web server with live reload.
 
 1. Alternatively,  you can also open a browser and access the following URL:
 
-  [http://localhost:5000](http://localhost:5000)
+    [http://localhost:5000](http://localhost:5000)
 
-  This works because the Node.js server is configured to serve static pages in the **conference/www** folder. Open 
-  server.js in ionic-tutorial/server to see the code. Specifically:
+    This works because the Node.js server is configured to serve static pages in the **conference/www** folder. Open 
+    server.js in ionic-tutorial/server to see the code. Specifically:
 
-  ```
-  app.use(express.static('../conference/www'));
-  ```
+    ```
+    app.use(express.static('../conference/www'));
+    ```
 
 1. Back in the application, open the side menu ("hamburger" icon in the upper left corner) and select 
 **Playlists**. 
 Select a playlist in the list to see the details view (not much to see at this point).
 
-  In the next modules, you will replace the playlists with a list of conference sessions retrieved from the 
-  server using the REST services you experimented with in the previous module.
+    In the next modules, you will replace the playlists with a list of conference sessions retrieved from the 
+    server using the REST services you experimented with in the previous module.
 
 1. Open the side menu again and select **Login**. Click the Login button to close the window (Login is not 
 implemented in the starter app).
@@ -61,5 +61,3 @@ Previous</a>
 glyphicon-chevron-right"></i></a>
 </div>
 </div>
-
-
