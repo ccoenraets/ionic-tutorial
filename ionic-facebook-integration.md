@@ -24,8 +24,8 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 1. Click the **Advanced Tab**
 
 1. In the **Security** section, add the following URLs in the **Valid OAuth Redirect URIs** field:
-  - http://localhost:5000/oauthcallback.html
-  - https://www.facebook.com/connect/login_success.html (for access from Cordova)
+    - http://localhost:5000/oauthcallback.html
+    - https://www.facebook.com/connect/login_success.html (for access from Cordova)
 
 1. Click **Save Changes**  
 
@@ -33,20 +33,18 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 ## Step 2: Add Facebook login
 
 1. Add the openfb files to your application
-  - Copy **openfb.js** from ionic-tutorial/resources to conference/www/lib.
-  - Copy **oauthcallback.html** and **logoutcallback.html** from ionic-tutorial/resources to conference/www.
-  - In **conference/www/index.html**, add a script tag to include openfb.js (before app.js):
-
+    - Copy **openfb.js** from ionic-tutorial/resources to conference/www/lib.
+    - Copy **oauthcallback.html** and **logoutcallback.html** from ionic-tutorial/resources to conference/www.
+    - In **conference/www/index.html**, add a script tag to include openfb.js (before app.js):
         ```
         <script src="lib/openfb.js"></script>
         ```
 
 1. Open conference/www/js/app.js, and initialize OpenFB in the config() function (on the first line, before $stateProvider). Replace **YOUR&#95;FB&#95;APP_ID** with the App Id of your Facebook application.
 
-  ```
-  openFB.init({appId: 'YOUR_FB_APP_ID'});
-
-  ```
+    ```
+    openFB.init({appId: 'YOUR_FB_APP_ID'});
+    ```
 
 1. Open login.html in the **www/conference/templates** directory. Add a **Login with Facebook** button right after the 
 existing **Log 
@@ -135,8 +133,8 @@ doLogin function):
 
 1. Open app.js, and add the following route:
 
-  ```
-  .state('app.profile', {
+    ```
+    .state('app.profile', {
       url: "/profile",
       views: {
           'menuContent' :{
@@ -144,16 +142,16 @@ doLogin function):
               controller: "ProfileCtrl"
           }
       }
-  })
-  ```
+    })
+    ```
 
 1. Open www/templates/menu.html, and add the following menu item:
 
-  ```
-  <ion-item nav-clear menu-close href="#/app/profile">
+    ```
+    <ion-item nav-clear menu-close href="#/app/profile">
       Profile
-  </ion-item>
-  ```
+    </ion-item>
+    ```
 
 1. Test the application:
     - Open a browser and access [http://localhost:5000](http://localhost:5000)
