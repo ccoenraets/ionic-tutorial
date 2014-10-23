@@ -27,7 +27,7 @@ and session.html to display the details of a particular session.
     {% endraw %}
     ```
 
-  > Notice the use of the ng-repeat directive to display the list of sessions
+    > Notice the use of the ng-repeat directive to display the list of sessions
 
 
 ## Step 2: Create the session template
