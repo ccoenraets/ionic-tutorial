@@ -14,7 +14,7 @@ In this module, you install the [Ionic Framework](http://ionicframework.com/) an
     npm install -g cordova ionic
     ```
 
-  On a Mac, you may have to use **sudo** depending on your system configuration:
+    On a Mac, you may have to use **sudo** depending on your system configuration:
 
     ```
     sudo npm install -g cordova ionic
