@@ -32,15 +32,15 @@ you create a Session service that uses the [Angular resource module](https://doc
  not included by default. Open index.html and add a script tag to include **angular-resource.min.js** (right after 
  ionic-bundle.js):
 
-  ```
-  <script src="lib/ionic/js/angular/angular-resource.min.js"></script>
-  ```
+    ```
+    <script src="lib/ionic/js/angular/angular-resource.min.js"></script>
+    ```
 
 1. Add a script tag to include the **services.js** file you just created (right after app.js):
 
-  ```
-  <script src="js/services.js"></script>
-  ```
+    ```
+    <script src="js/services.js"></script>
+    ```
 
 
 <div class="row" style="margin-top:40px;">
