@@ -36,11 +36,13 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
     - Copy **openfb.js** from ionic-tutorial/resources to conference/www/lib.
     - Copy **oauthcallback.html** and **logoutcallback.html** from ionic-tutorial/resources to conference/www.
     - In **conference/www/index.html**, add a script tag to include openfb.js (before app.js):
+
         ```
         <script src="lib/openfb.js"></script>
         ```
 
 1. Open conference/www/js/app.js, and initialize OpenFB in the config() function (on the first line, before $stateProvider). Replace **YOUR&#95;FB&#95;APP_ID** with the App Id of your Facebook application.
+
     ```
     openFB.init({appId: 'YOUR_FB_APP_ID'});
     ```
