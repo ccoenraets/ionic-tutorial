@@ -13,8 +13,8 @@ view, and app.session loads the session details view.
  
 1. Replace it with an **app.sessions** state defined as follows:
 
-  ```
-  .state('app.sessions', {
+    ```
+    .state('app.sessions', {
       url: "/sessions",
       views: {
           'menuContent': {
@@ -22,8 +22,8 @@ view, and app.session loads the session details view.
               controller: 'SessionsCtrl'
           }
       }
-  })
-  ```
+    })
+    ```
 
 ## Step 2: Define the app.session route 
 
@@ -31,8 +31,8 @@ view, and app.session loads the session details view.
  
 1. Replace it with an app.session state defined as follows:
 
-  ```
-  .state('app.session', {
+    ```
+    .state('app.session', {
       url: "/sessions/:sessionId",
       views: {
           'menuContent': {
@@ -40,16 +40,16 @@ view, and app.session loads the session details view.
               controller: 'SessionCtrl'
           }
       }
-  });
-  ```
+    });
+    ```
 
 ## Step 3: Modify the default route 
 
 Modify the fallback route to default to the list of sessions (last line in app.js):
 
-  ```
-  $urlRouterProvider.otherwise('/app/sessions');
-  ```
+    ```
+    $urlRouterProvider.otherwise('/app/sessions');
+    ```
 
 ## Step 4: Modify the side menu 
 
@@ -57,17 +57,17 @@ Modify the fallback route to default to the list of sessions (last line in app.j
 
 1. Modify the Playlists menu item as follows (modify both the item label and the **href**):
 
-  ```
-  <ion-item nav-clear menu-close href="#/app/sessions">
-    Sessions
-  </ion-item>
-  ```
+    ```
+    <ion-item nav-clear menu-close href="#/app/sessions">
+        Sessions
+    </ion-item>
+    ```
 
 ## Step 5: Test the application
 
 1. Open a browser and access the following URL:
 
-  [http://localhost:5000](http://localhost:5000)
+    [http://localhost:5000](http://localhost:5000)
 
 1. Open the side menu ("Hamburger" icon in the upper left corner) and select **Sessions**. Select a session in the list
  to see the session details.
