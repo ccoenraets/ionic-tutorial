@@ -10,27 +10,27 @@ In this module, you install the [Ionic Framework](http://ionicframework.com/) an
 
 1. Open a terminal window (Mac) or a command window (Windows), and install Cordova and Ionic:
 
-  ```
-  npm install -g cordova ionic
-  ```
+    ```
+    npm install -g cordova ionic
+    ```
 
   On a Mac, you may have to use **sudo** depending on your system configuration:
 
-  ```
-  sudo npm install -g cordova ionic
-  ```
+    ```
+    sudo npm install -g cordova ionic
+    ```
 
 1. If you already have Cordova and Ionic installed on your computer, make sure you update to the latest version:
 
-  ```
-  npm update -g cordova ionic
-  ```
+    ```
+    npm update -g cordova ionic
+    ```
 
-  or
+    or
 
-  ```
-  sudo npm update -g cordova ionic
-  ```
+    ```
+    sudo npm update -g cordova ionic
+    ```
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
