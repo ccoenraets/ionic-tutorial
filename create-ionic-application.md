@@ -15,7 +15,22 @@ starter app.
   ionic start conference sidemenu
   ```
 
-1. Run the application. Open a browser and access the following URL:
+1. Navigate to the conference folder 
+
+  ```
+  cd conference
+  ```
+
+1. Start the application in a browser using **ionic serve**.
+
+  ```
+  ionic serve
+  ```
+
+  > NOTE: Because of cross domain policy issues (specifically when loading templates), 
+  you have to load the application from a server (using the http protocol and not the file protocol). **ionic serve** is a lightweight local web server with live reload.
+
+1. Alternatively,  you can also open a browser and access the following URL:
 
   [http://localhost:5000](http://localhost:5000)
 
@@ -25,12 +40,6 @@ starter app.
   ```
   app.use(express.static('../conference/www'));
   ```
-
-  > NOTE: Because of cross domain policy issues (specifically when loading templates), 
-  you have to load the application from a server (using the http protocol and not the file protocol). If a local 
-  server (like the Node server in this tutorial) is not available, you can also load your application using [ionic 
-  serve](http://ionicframework.com/docs/guide/testing.html).
-
 
 1. Back in the application, open the side menu ("hamburger" icon in the upper left corner) and select 
 **Playlists**. 
