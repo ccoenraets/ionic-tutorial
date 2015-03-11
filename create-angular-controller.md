@@ -12,7 +12,7 @@ The two controllers you create in this module use the **Session** service define
 add 
 starter.services as a dependency to the starter.controller module: 
 
-1. Open **conference/js/controllers.js**
+1. Open **conference/www/js/controllers.js**
 
 1. Add **starter.services** as a dependency to make the Session service available to the controllers:
 
