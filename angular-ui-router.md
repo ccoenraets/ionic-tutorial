@@ -47,9 +47,9 @@ view, and app.session loads the session details view.
 
 Modify the fallback route to default to the list of sessions (last line in app.js):
 
-    ```
-    $urlRouterProvider.otherwise('/app/sessions');
-    ```
+```
+$urlRouterProvider.otherwise('/app/sessions');
+```
 
 ## Step 4: Modify the side menu 
 
