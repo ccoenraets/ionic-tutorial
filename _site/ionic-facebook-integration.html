@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Ionic Framework Tutorial</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-721308-2', 'ccoenraets.github.io');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Ionic Framework Tutorial</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a
+                        href="https://github.com/ccoenraets/ionic-tutorial"><img
+                        src="images/icon-github.png" style="border: none;margin: -4px 0;height: 28px;width: 28px;"/>
+                    GitHub
+                    Project</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<div class="container">
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-8">
+        <h1>Module 9&#58; Facebook Integration</h1>
+        <!--<hr/>-->
+        <p>In this module, you add Facebook integration to your application. You allow users to login with Facebook, 
+view their profile, and share their favorite sessions on their feed.</p>
+
+<blockquote>
+<p>In this tutorial, you use <a href="https://github.com/ccoenraets/OpenFB">OpenFB</a> to perform the integration. OpenFB is a 
+micro-library that lets you integrate 
+your JavaScript applications with Facebook. It works for both browser-based and Cordova/PhoneGap apps. It also 
+doesn&#39;t have any dependency: You don&#39;t need the Facebook plugin when running in Cordova. You also don&#39;t need the 
+Facebook SDK. More information <a href="https://github.com/ccoenraets/OpenFB">here</a>.</p>
+</blockquote>
+
+<h2>Step 1: Create a Facebook application</h2>
+
+<ol>
+<li><p>Login to Facebook</p></li>
+<li><p>Access <a href="https://developers.facebook.com/apps">https://developers.facebook.com/apps</a>, and click <strong>Create New App</strong></p></li>
+<li><p>Specify a unique <strong>Display Name</strong> and a <strong>Category</strong>, and click <strong>Create App</strong></p></li>
+<li><p>Click <strong>Settings</strong> in the left navigation</p></li>
+<li><p>Click the <strong>Advanced Tab</strong></p></li>
+<li><p>In the <strong>Security</strong> section, add the following URLs in the <strong>Valid OAuth Redirect URIs</strong> field:</p>
+
+<ul>
+<li>http://localhost:5000/oauthcallback.html</li>
+<li>https://www.facebook.com/connect/login_success.html (for access from Cordova)</li>
+</ul></li>
+<li><p>Click <strong>Save Changes</strong>  </p></li>
+</ol>
+
+<h2>Step 2: Add Facebook login</h2>
+
+<ol>
+<li><p>Add the openfb files to your application</p>
+
+<ul>
+<li>Copy <strong>openfb.js</strong> from ionic-tutorial/resources to conference/www/lib.</li>
+<li>Copy <strong>oauthcallback.html</strong> and <strong>logoutcallback.html</strong> from ionic-tutorial/resources to conference/www.</li>
+<li><p>In <strong>conference/www/index.html</strong>, add a script tag to include openfb.js (before app.js):</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;script src=&quot;lib/openfb.js&quot;&gt;&lt;/script&gt;
+</code></pre></div></li>
+</ul></li>
+<li><p>Open conference/www/js/app.js, and initialize OpenFB in the config() function (on the first line, before $stateProvider). Replace <strong>YOUR&#95;FB&#95;APP_ID</strong> with the App Id of your Facebook application.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">openFB.init({appId: &#39;YOUR_FB_APP_ID&#39;});
+</code></pre></div></li>
+<li><p>Open login.html in the <strong>www/conference/templates</strong> directory. Add a <strong>Login with Facebook</strong> button right after the 
+existing <strong>Log 
+In</strong> button: </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;label class=&quot;item&quot;&gt;
+    &lt;button class=&quot;button button-block button-positive&quot; ng-click=&quot;fbLogin()&quot;&gt;
+        Login with Facebook
+    &lt;/button&gt;
+&lt;/label&gt;
+</code></pre></div>
+<blockquote>
+<p>Notice that fbLogin() is called on ng-click. You define the fbLogin() function in the next step.</p>
+</blockquote></li>
+<li><p>Open conference/www/js/controllers.js, and add the fbLogin function in the AppCtrl controller (right after the 
+doLogin function):</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$scope.fbLogin = function() {
+    openFB.login(
+        function(response) {
+            if (response.status === &#39;connected&#39;) {
+                console.log(&#39;Facebook login succeeded&#39;);
+                $scope.closeLogin();
+            } else {
+                alert(&#39;Facebook login failed&#39;);
+            }
+        },
+        {scope: &#39;email,publish_actions&#39;});
+}
+</code></pre></div></li>
+<li><p>Test the application:</p>
+
+<ul>
+<li>Open a browser and access <a href="http://localhost:5000">http://localhost:5000</a></li>
+<li>Open the side menu and select Login</li>
+<li>Click the <strong>Login with Facebook</strong> button</li>
+<li>Enter your Facebook credentials on the Facebook login screen, and authorize the application </li>
+<li>Open the browser console: you should see the <strong>Facebook login succeeded</strong> message</li>
+</ul>
+
+<blockquote>
+<p>The next time you login, you won&#39;t be asked for your credentials again since you already have a valid token. To
+ test the login process again, simply logout from Facebook. The OpenFB library has additional methods to logout 
+ and revoke permissions that are beyond the scope of this tutorial.  </p>
+</blockquote></li>
+</ol>
+
+<h2>Step 3: Display the User Profile</h2>
+
+<ol>
+<li><p>Create a <strong>template</strong> for the user profile view. In the conference/www/templates directory, create a new file named <strong>profile.html</strong> and implement it as follows:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;ion-view title=&quot;Profile&quot;&gt;
+    &lt;ion-content class=&quot;has-header&quot;&gt;
+        &lt;div class=&quot;list card&quot;&gt;
+            &lt;div class=&quot;item&quot;&gt;
+                &lt;h2&gt;{{user.name}}&lt;/h2&gt;
+                &lt;p&gt;{{user.city}}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;item item-body&quot;&gt;
+                &lt;img src=&quot;http://graph.facebook.com/{{user.id}}/picture?width=270&amp;height=270&quot;/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/ion-content&gt;
+&lt;/ion-view&gt;
+</code></pre></div></li>
+<li><p>Create a <strong>controller</strong>. Open controllers.js, and add the following controller:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.controller(&#39;ProfileCtrl&#39;, function($scope) {
+    openFB.api({
+        path: &#39;/me&#39;,
+        params: {fields: &#39;id,name&#39;},
+        success: function(user) {
+            $scope.$apply(function() {
+                $scope.user = user;
+            });
+        },
+        error: function(error) {
+            alert(&#39;Facebook error: &#39; + error.error_description);
+        }
+    });
+});
+</code></pre></div></li>
+<li><p>Open app.js, and add the following route:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.state(&#39;app.profile&#39;, {
+  url: &quot;/profile&quot;,
+  views: {
+      &#39;menuContent&#39; :{
+          templateUrl: &quot;templates/profile.html&quot;,
+          controller: &quot;ProfileCtrl&quot;
+      }
+  }
+})
+</code></pre></div></li>
+<li><p>Open www/templates/menu.html, and add the following menu item:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;ion-item nav-clear menu-close href=&quot;#/app/profile&quot;&gt;
+  Profile
+&lt;/ion-item&gt;
+</code></pre></div></li>
+<li><p>Test the application:</p>
+
+<ul>
+<li>Open a browser and access <a href="http://localhost:5000">http://localhost:5000</a></li>
+<li>Open the side menu and select <strong>Login</strong></li>
+<li>Login with Facebook</li>
+<li>Open the side menu and select <strong>Profile</strong></li>
+</ul></li>
+</ol>
+
+<h2>Step 4: Publish to your feed</h2>
+
+<ol>
+<li><p>Open controllers.js, and add a share function to the SessionCtrl controller:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$scope.share = function(event) {
+    openFB.api({
+        method: &#39;POST&#39;,
+        path: &#39;/me/feed&#39;,
+        params: {
+            message: &quot;I&#39;ll be attending: &#39;&quot; + $scope.session.title + &quot;&#39; by &quot; +
+                $scope.session.speaker
+        },
+        success: function () {
+            alert(&#39;The session was shared on Facebook&#39;);
+        },
+        error: function () {
+            alert(&#39;An error occurred while sharing this session on Facebook&#39;);
+        }
+    });
+};
+</code></pre></div></li>
+<li><p>Open session.html in the templates directory and add an ng-click handler to the Share button: invoke the 
+share function: </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;a class=&quot;tab-item&quot; ng-click=&quot;share()&quot;&gt;
+    &lt;i class=&quot;icon ion-share&quot;&gt;&lt;/i&gt;
+    Share
+&lt;/a&gt;
+</code></pre></div></li>
+<li><p>Test the application:</p>
+
+<ul>
+<li>Open a browser and access <a href="http://localhost:5000">http://localhost:5000</a></li>
+<li>Open the side menu and select <strong>Login</strong></li>
+<li>Login with Facebook</li>
+<li>Open the side menu, select <strong>Sessions</strong>, and select a session in the list</li>
+<li>Click/Tap the Share button</li>
+<li>Check your feed on Facebook</li>
+</ul></li>
+</ol>
+
+<h2>Step 5: Test Facebook integration on device (optional)</h2>
+
+<ol>
+<li><p>Build your application for a specific platform following the steps described in module 8:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ionic build ios
+</code></pre></div>
+<p>and/or</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ionic build android
+</code></pre></div></li>
+<li><p>Run and test your application on an iOS or Android device or emulator </p></li>
+</ol>
+
+<div class="row" style="margin-top:40px;">
+<div class="col-sm-12">
+<a href="build-ionic-project.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 
+Previous</a>
+</div>
+
+<p></div></p>
+
+
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-xs-12">
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'ionictutorial'; // required: replace example with your forum shortname
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4 right-nav">
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading" style="font-variant:small-caps;font-size: 18px;">modules</div>
+            <ol class="list-group">
+                <li><a href="install-ionic.html">Installing Ionic</a></li>
+                <li><a href="start-node-server.html">Starting the Node Server</a></li>
+                <li><a href="create-ionic-application.html">Creating an Ionic Application</a></li>
+                <li><a href="create-angular-service.html">Creating the Session Service</a></li>
+                <li><a href="create-angular-controller.html">Creating the Session Controllers</a></li>
+                <li><a href="create-ionic-template.html">Creating Templates</a></li>
+                <li><a href="angular-ui-router.html">Routing</a></li>
+                <li><a href="build-ionic-project.html">Building the Project</a></li>
+                <li><a href="ionic-facebook-integration.html">Facebook Integration</a></li>
+            </ol>
+            <p></p>
+        </div>
+
+        <a href="https://twitter.com/share" class="twitter-share-button" data-size="large"
+           data-url="http://ccoenraets.github.io/ionic-tutorial"
+           data-text="New Ionic Framework Tutorial @ionicframework @angularjs @apachecordova @ccoenraets">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/ccoenraets" class="twitter-follow-button" data-show-count="true"
+   data-size="large" data-lang="en">Follow
+    @ccoenraets</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="container">
+    <div id="footer">
+        <p class="text-muted">Christophe Coenraets, 2014</p>
+    </div>    <!-- Site footer -->
+</div>
+
+
+<script src="lib/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

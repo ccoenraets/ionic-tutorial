@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Ionic Framework Tutorial</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-721308-2', 'ccoenraets.github.io');
+      ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Ionic Framework Tutorial</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a
+                        href="https://github.com/ccoenraets/ionic-tutorial"><img
+                        src="images/icon-github.png" style="border: none;margin: -4px 0;height: 28px;width: 28px;"/>
+                    GitHub
+                    Project</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" style="text-align: center">
+                <img src="images/ionic-logo.png"/>
+                <h1>Ionic Tutorial</h1>
+                <p><a class="btn btn-primary btn-lg" href="install-ionic.html" role="button">Start Now</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background-color: #f4f4f4;margin-top: -30px;border-bottom: solid 1px #ddd;padding:12px 0 6px 0;margin-bottom:30px;">
+    <div class="container">
+        <div class="row" style="text-align: center">
+            <div style="margin-left: 30px;">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-size="large"
+               data-url="http://ccoenraets.github.io/ionic-tutorial"
+               data-text="New Ionic Framework Tutorial @ionicframework @angularjs @apachecordova @ccoenraets">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <p>In this tutorial, you learn how to build a native-like mobile application with  <a href="http://ionicframework.com/">Ionic</a> and <a href="https://angularjs.org/">AngularJS</a>. 
+You build a Conference application that allows the attendees of a conference to browse through the list of sessions, 
+and share information on Facebook. </p>
+
+<h2>What You Will Learn:</h2>
+
+<ul>
+<li><p>How to create and build (compile and package) an Ionic project using the CLI (Command Line Interface).</p></li>
+<li><p>How to start from one of the Ionic starter apps</p></li>
+<li><p>How to build a modern mobile UI using Ionic components such as side menu, cards, action sheets, etc. </p></li>
+<li><p>How to create a service using the Angular resource module (ngResource) to access REST services</p></li>
+<li><p>How to use controllers</p></li>
+<li><p>How to use routing</p></li>
+<li><p>How to login with Facebook, and publish information to your feed</p></li>
+</ul>
+
+<h2>Requirements</h2>
+
+<ul>
+<li><p>To complete this workshop, all you need is a code editor, a modern browser, and a connection to the Internet.</p></li>
+<li><p>A working knowledge of HTML and JavaScript is assumed, but you don&#39;t need to be a JavaScript guru.</p></li>
+</ul>
+
+<blockquote>
+<p>A mobile device or a Mobile SDK is <strong>not</strong> a requirement for this tutorial. However, 
+if you want to run the application on an iOS and/or an Android device or emulator, 
+you need the iOS SDK and/or the Android SDK installed on your system. If you don&#39;t want to install a Mobile SDK, you&#39;ll be able to test your application in a browser on your computer.</p>
+</blockquote>
+
+<h2>Issues</h2>
+
+<ul>
+<li><p>Please create an issue <a href="https://github.com/ccoenraets/ionic-tutorial/issues">here</a> if you run
+into any problem or if you have a suggestion to improve this tutorial.</p></li>
+<li><p>You can also use the Comments section at the bottom of each module to ask a question or report a problem.</p></li>
+<li><p>You can contact me on Twitter:</p>
+
+<p><a href="https://twitter.com/ccoenraets" class="twitter-follow-button" data-show-count="true" 
+data-size="large" data-lang="en">Follow 
+@ccoenraets</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&quot;//platform.twitter.com/widgets.js&quot;;fjs.parentNode.insertBefore(js,fjs);}}(document,&quot;script&quot;,&quot;twitter-wjs&quot;);</script></p></li>
+</ul>
+
+<div class="row" style="margin-top:40px;">
+<div class="col-sm-12">
+<a href="install-ionic.html" class="btn btn-default pull-right">Next <i class="glyphicon
+glyphicon-chevron-right"></i></a>
+</div>
+
+<p></div></p>
+
+</div>
+
+<div class="container">
+    <div id="footer">
+        <p class="text-muted">Christophe Coenraets, 2014</p>
+    </div>    <!-- Site footer -->
+</div>
+
+
+<script src="lib/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

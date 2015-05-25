@@ -65,11 +65,15 @@ $urlRouterProvider.otherwise('/app/sessions');
 
 ## Step 5: Test the application
 
-1. Open a browser and access the following URL:
+1. Make sure **ionic serve** (your local web server) is still running.
+    - If it's running but you closed your app page in the browser, you can reload the app by loading the following URL: [http://localhost:8100](http://localhost:8100)
+    - If it's not running, open a command prompt, navigate (cd) to the **ionic-tutorial** directory and type:
 
-    [http://localhost:5000](http://localhost:5000)
-
-1. Open the side menu ("Hamburger" icon in the upper left corner) and select **Sessions**. Select a session in the list
+        ```
+        ionic serve
+        ```
+    
+1. In the conference application, open the side menu ("Hamburger" icon in the upper left corner) and select **Sessions**. Select a session in the list
  to see the session details.
 
 
