@@ -1,24 +1,28 @@
 {
-    "name": "server",
-    "version": "0.1.0",
-    "description": "Ionic Tutorial",
-    "main": "server.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ccoenraets/ionic-tutorial"
-    },
-    "author": "Christophe Coenraets",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ccoenraets/ionic-tutorial/issues"
-    },
-    "homepage": "https://github.com/ccoenraets/ionic-tutorial",
-    "dependencies": {
-        "express": "~4.4.1",
-        "body-parser": "~1.3.0",
-        "method-override": "~2.0.1"
-    },
-    "scripts": {
-        "start": "node server.js"
-    }
+  "name": "server",
+  "version": "0.1.0",
+  "description": "Ionic Tutorial",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccoenraets/ionic-tutorial"
+  },
+  "author": "Christophe Coenraets",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccoenraets/ionic-tutorial/issues"
+  },
+  "homepage": "https://github.com/ccoenraets/ionic-tutorial",
+  "dependencies": {
+    "body-parser": "^1.3.1",
+    "express": "^4.4.5",
+    "method-override": "^2.0.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Ionic",
+    "Tutorial"
+  ]
 }
