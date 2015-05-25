@@ -13,15 +13,12 @@ and session.html to display the details of a particular session.
 
     ```
     {% raw %}
-    <ion-view title="Sessions">
-      <ion-nav-buttons side="left">
-          <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-      </ion-nav-buttons>
-      <ion-content class="has-header">
-          <ion-list>
-              <ion-item ng-repeat="session in sessions" 
-                        href="#/app/sessions/{{session.id}}">{{session.title}}</ion-item>
-          </ion-list>
+    <ion-view view-title="Sessions">
+      <ion-content>
+        <ion-list>
+          <ion-item ng-repeat="session in sessions"
+                    href="#/app/sessions/{{session.id}}">{{session.title}}</ion-item>
+        </ion-list>
       </ion-content>
     </ion-view>
     {% endraw %}
@@ -38,33 +35,33 @@ and session.html to display the details of a particular session.
 
     ```
     {% raw %}
-    <ion-view title="Session">
-        <ion-content class="has-header">
-            <div class="list card">
-                <div class="item">
-                    <h3>{{session.time}}</h3>
-                    <h2>{{session.title}}</h2>
-                    <p>{{session.speaker}}</p>
-                </div>
-                <div class="item item-body">
-                    <p>{{session.description}}</p>
-                </div>
-                <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item">
-                        <i class="icon ion-thumbsup"></i>
-                        Like
-                    </a>
-                    <a class="tab-item">
-                        <i class="icon ion-chatbox"></i>
-                        Comment
-                    </a>
-                    <a class="tab-item">
-                        <i class="icon ion-share"></i>
-                        Share
-                    </a>
-                </div>
-            </div>
-        </ion-content>
+    <ion-view view-title="Session">
+      <ion-content>
+        <div class="list card">
+          <div class="item">
+            <h3>{{session.time}}</h3>
+            <h2>{{session.title}}</h2>
+            <p>{{session.speaker}}</p>
+          </div>
+          <div class="item item-body">
+            <p>{{session.description}}</p>
+          </div>
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item">
+              <i class="icon ion-thumbsup"></i>
+              Like
+            </a>
+            <a class="tab-item">
+              <i class="icon ion-chatbox"></i>
+              Comment
+            </a>
+            <a class="tab-item">
+              <i class="icon ion-share"></i>
+              Share
+            </a>
+          </div>
+        </div>
+      </ion-content>
     </ion-view>
     {% endraw %}
     ```
