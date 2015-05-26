@@ -15,16 +15,22 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 
 1. Login to Facebook
 
-1. Access [https://developers.facebook.com/apps](https://developers.facebook.com/apps), and click **Create New App**
+1. Access [https://developers.facebook.com/apps](https://developers.facebook.com/apps), and click **Add New App**
 
-1. Specify a unique **Display Name** and a **Category**, and click **Create App**
+1. Click **www** as the platform
+
+1. Type a name for your app and click **Create New Facebook App Id** 
+
+1. Specify a **Category**, and click **Create App ID**
+
+1. Click **My Apps** in the menu and select the app you just created 
 
 1. Click **Settings** in the left navigation
 
 1. Click the **Advanced Tab**
 
-1. In the **Security** section, add the following URLs in the **Valid OAuth Redirect URIs** field:
-    - http://localhost:5000/oauthcallback.html
+1. In the **OAuth Settings** section, add the following URLs in the **Valid OAuth redirect URIs** field:
+    - http://localhost:8100/oauthcallback.html
     - https://www.facebook.com/connect/login_success.html (for access from Cordova)
 
 1. Click **Save Changes**  
