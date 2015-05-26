@@ -6,18 +6,6 @@ title: Module 8&#58; Building the Application
 This module is optional. To build the application for iOS and/or Android, you need the iOS SDK and/or the Android SDK 
 installed on your system.
 
-## Add the InAppBrowser plugin
-
-The InAppBrowser plugin is used in Module 9 to support Facebook login when running in Cordova.
-
-1. On the command line, navigate to the **ionic-tutorial/conference** directory
-
-1. Add the InAppBrowser plugin 
-
-    ```
-    cordova plugins add org.apache.cordova.inappbrowser
-    ```
-
 ## Building for iOS
 
 > You need the iOS SDK installed on your computer to build an iOS version of your application 

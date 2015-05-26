@@ -17,9 +17,9 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 
 1. Access [https://developers.facebook.com/apps](https://developers.facebook.com/apps), and click **Add New App**
 
-1. Click **www** as the platform
+1. Select **www** as the platform
 
-1. Type a name for your app and click **Create New Facebook App Id** 
+1. Type a unique name for your app and click **Create New Facebook App ID** 
 
 1. Specify a **Category**, and click **Create App ID**
 
@@ -30,28 +30,47 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 1. Click the **Advanced Tab**
 
 1. In the **OAuth Settings** section, add the following URLs in the **Valid OAuth redirect URIs** field:
-    - http://localhost:8100/oauthcallback.html
-    - https://www.facebook.com/connect/login_success.html (for access from Cordova)
+    - [http://localhost:8100/oauthcallback.html](http://localhost:8100/oauthcallback.html) (for access using ionic serve)
+    - [https://www.facebook.com/connect/login_success.html](https://www.facebook.com/connect/login_success.html) (for access from Cordova)
 
 1. Click **Save Changes**  
 
 
-## Step 2: Add Facebook login
+## Step 2: Initialize OpenFB
 
-1. Add the openfb files to your application
-    - Copy **openfb.js** from ionic-tutorial/resources to conference/www/lib.
-    - Copy **oauthcallback.html** and **logoutcallback.html** from ionic-tutorial/resources to conference/www.
-    - In **conference/www/index.html**, add a script tag to include openfb.js (before app.js):
+1. Add the OpenFB files to your application
+    - Copy **openfb.js** and **ngopenfb.js** from **ionic-tutorial/resources** to **conference/www/js**.
+    - Copy **oauthcallback.html** and **logoutcallback.html** from **ionic-tutorial/resources** to **conference/www**.
+    - In **conference/www/index.html**, add script tags to include openfb.js and ngopenfb.js (before app.js):
 
         ```
-        <script src="lib/openfb.js"></script>
+        <script src="js/openfb.js"></script>
+        <script src="js/ngopenfb.js"></script>
         ```
 
-1. Open conference/www/js/app.js, and initialize OpenFB in the config() function (on the first line, before $stateProvider). Replace **YOUR&#95;FB&#95;APP_ID** with the App Id of your Facebook application.
+        > ngOpenFB is just an Angular wrapper around the OpenFB library. It lets you use OpenFB "the Angular way":
+            as an Angular service (called ngFB) instead of a global object, and using promises instead of callbacks.
+
+1. Open **conference/www/js/app.js**, and add **ngOpenFB** as a dependency to the **starter** module:
+ 
+    ```
+    angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
+    ```
+
+1. Inject **ngFB** in the run() function declaration:
 
     ```
-    openFB.init({appId: 'YOUR_FB_APP_ID'});
+    .run(function ($ionicPlatform, ngFB) {
     ```
+ 
+ 
+1. Initialize OpenFB on the first line of the run() function. Replace **YOUR&#95;FB&#95;APP_ID** with the App ID of your Facebook application.
+
+    ```
+    ngFB.init({appId: 'YOUR_FB_APP_ID'});
+    ```
+
+## Step 3: Add Facebook login
 
 1. Open login.html in the **www/conference/templates** directory. Add a **Login with Facebook** button right after the 
 existing **Log 
@@ -60,34 +79,50 @@ In** button:
     ```
     <label class="item">
         <button class="button button-block button-positive" ng-click="fbLogin()">
-            Login with Facebook
+        Login with Facebook
         </button>
     </label>
     ```
 
     > Notice that fbLogin() is called on ng-click. You define the fbLogin() function in the next step.
 
-1. Open conference/www/js/controllers.js, and add the fbLogin function in the AppCtrl controller (right after the 
+1. Open conference/www/js/controllers.js, and add **ngOpenFB** as a dependency to the **starter.controllers** module:
+ 
+    ```
+    angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
+    ``` 
+
+1. Inject **ngFB** in the **AppCtrl** controller:
+
+    ```
+    .controller('AppCtrl', function ($scope, $ionicModal, $timeout, ngFB) {
+    ```
+    
+1. Add the fbLogin function in the **AppCtrl** controller (right after the 
 doLogin function):
 
     ```
-    $scope.fbLogin = function() {
-        openFB.login(
-            function(response) {
+    $scope.fbLogin = function () {
+        ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
+            function (response) {
                 if (response.status === 'connected') {
                     console.log('Facebook login succeeded');
                     $scope.closeLogin();
                 } else {
                     alert('Facebook login failed');
                 }
-            },
-            {scope: 'email,publish_actions'});
-    }
+            });
+    };
     ```
 
-1. Test the application:
-    - Open a browser and access [http://localhost:5000](http://localhost:5000)
-    - Open the side menu and select Login
+1. Test the application. 
+    - Make sure **ionic serve** (your local web server) is still running. If it's running but you closed your app page in the browser, you can reload the app by accessing the following URL: [http://localhost:8100](http://localhost:8100). 
+        If it's not running, open a command prompt, navigate (cd) to the **ionic-tutorial** directory and type:
+    
+        ```
+        ionic serve
+        ```
+    - In the application, open the side menu and select **Login**
     - Click the **Login with Facebook** button
     - Enter your Facebook credentials on the Facebook login screen, and authorize the application 
     - Open the browser console: you should see the **Facebook login succeeded** message
@@ -97,13 +132,13 @@ doLogin function):
      and revoke permissions that are beyond the scope of this tutorial.  
 
 
-## Step 3: Display the User Profile
+## Step 4: Display the User Profile
 
-1. Create a **template** for the user profile view. In the conference/www/templates directory, create a new file named **profile.html** and implement it as follows:
+1. Create a **template** for the user profile view. In the **conference/www/templates** directory, create a new file named **profile.html** and implement it as follows:
 
     ```
     {% raw %}
-    <ion-view title="Profile">
+    <ion-view view-title="Profile">
         <ion-content class="has-header">
             <div class="list card">
                 <div class="item">
@@ -119,78 +154,87 @@ doLogin function):
     {% endraw %}
     ```
 
-1. Create a **controller**. Open controllers.js, and add the following controller:
+1. Create a **controller** for the user profile view. Open **controllers.js**, and add the following controller:
 
     ```
-    .controller('ProfileCtrl', function($scope) {
-        openFB.api({
+    .controller('ProfileCtrl', function ($scope, ngFB) {
+        ngFB.api({
             path: '/me',
-            params: {fields: 'id,name'},
-            success: function(user) {
-                $scope.$apply(function() {
-                    $scope.user = user;
-                });
+            params: {fields: 'id,name'}
+        }).then(
+            function (user) {
+                $scope.user = user;
             },
-            error: function(error) {
+            function (error) {
                 alert('Facebook error: ' + error.error_description);
-            }
-        });
+            });
     });
     ```
 
-1. Open app.js, and add the following route:
+1. Create a **route** for the user profile view. Open **app.js**, and add the following route:
 
     ```
     .state('app.profile', {
-      url: "/profile",
-      views: {
-          'menuContent' :{
-              templateUrl: "templates/profile.html",
-              controller: "ProfileCtrl"
-          }
-      }
+        url: "/profile",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/profile.html",
+                controller: "ProfileCtrl"
+            }
+        }
     })
     ```
 
-1. Open www/templates/menu.html, and add the following menu item:
+1. Open **www/templates/menu.html**, and add the following menu item:
 
     ```
-    <ion-item nav-clear menu-close href="#/app/profile">
-      Profile
+    <ion-item menu-close href="#/app/profile">
+        Profile
     </ion-item>
     ```
 
 1. Test the application:
-    - Open a browser and access [http://localhost:5000](http://localhost:5000)
+    - Make sure **ionic serve** (your local web server) is still running. If it's running but you closed your app page in the browser, you can reload the app by accessing the following URL: [http://localhost:8100](http://localhost:8100). 
+        If it's not running, open a command prompt, navigate (cd) to the **ionic-tutorial** directory and type:
+    
+        ```
+        ionic serve
+        ```
     - Open the side menu and select **Login**
     - Login with Facebook
     - Open the side menu and select **Profile**
 
 
-## Step 4: Publish to your feed
+## Step 5: Publish to your feed
 
-1. Open controllers.js, and add a share function to the SessionCtrl controller:
+1. Open **controllers.js**, and inject **ngFB** in the **SessionCtrl** definition:
+ 
+    ```
+    .controller('SessionCtrl', function ($scope, $stateParams, Session, ngFB) {
+    ```
+
+1. Add a **share()** function to the **SessionCtrl** controller:
 
     ```
-    $scope.share = function(event) {
-        openFB.api({
+    $scope.share = function (event) {
+        ngFB.api({
             method: 'POST',
             path: '/me/feed',
             params: {
                 message: "I'll be attending: '" + $scope.session.title + "' by " +
-                    $scope.session.speaker
-            },
-            success: function () {
+                $scope.session.speaker
+            }
+        }).then(
+            function () {
                 alert('The session was shared on Facebook');
             },
-            error: function () {
+            function () {
                 alert('An error occurred while sharing this session on Facebook');
-            }
-        });
+            });
     };
     ```
 
-1. Open session.html in the templates directory and add an ng-click handler to the Share button: invoke the 
+1. Open **session.html** in the templates directory and add an **ng-click** handler to the Share button: invoke the 
 share function: 
 
     ```
@@ -201,15 +245,26 @@ share function:
     ```
 
 1. Test the application:
-    - Open a browser and access [http://localhost:5000](http://localhost:5000)
+    - Make sure **ionic serve** (your local web server) is still running. If it's running but you closed your app page in the browser, you can reload the app by accessing the following URL: [http://localhost:8100](http://localhost:8100). 
+        If it's not running, open a command prompt, navigate (cd) to the **ionic-tutorial** directory and type:
+    
+        ```
+        ionic serve
+        ```
     - Open the side menu and select **Login**
     - Login with Facebook
     - Open the side menu, select **Sessions**, and select a session in the list
-    - Click/Tap the Share button
+    - Click/Tap the **Share** button
     - Check your feed on Facebook
 
 
-## Step 5: Test Facebook integration on device (optional)
+## Step 6: Test Facebook integration on device (optional)
+
+1. Add the **InAppBrowser** plugin used by OpenFB when running in Cordova. On the command line, navigate to the **ionic-tutorial/conference** directory and type:
+
+    ```
+    cordova plugins add org.apache.cordova.inappbrowser
+    ```
 
 1. Build your application for a specific platform following the steps described in module 8:
 
@@ -222,8 +277,16 @@ share function:
     ```
     ionic build android
     ```
+    
+    If the build fails after adding the plugin, try removing and re-adding the platform. For example:
+    
+    ```
+    ionic platform remove ios
+    ionic platform add ios
+    ionic build ios
+    ```
  
-2. Run and test your application on an iOS or Android device or emulator 
+1. Run and test your application on an iOS or Android device or emulator 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
