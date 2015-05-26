@@ -31,6 +31,8 @@ using the steps below.
     ionic platform add ios
     ```
 
+    > This step is not required with recent versions of the Ionic CLI because the ios platform is installed by default
+
 1. Build the project:
 
     ```
