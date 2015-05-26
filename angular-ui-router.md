@@ -58,7 +58,7 @@ $urlRouterProvider.otherwise('/app/sessions');
 1. Modify the Playlists menu item as follows (modify both the item label and the **href**):
 
     ```
-    <ion-item href="#/app/sessions">
+    <ion-item menu-close href="#/app/sessions">
         Sessions
     </ion-item>
     ```
