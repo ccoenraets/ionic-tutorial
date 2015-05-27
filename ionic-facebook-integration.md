@@ -72,7 +72,7 @@ Facebook SDK. More information [here](https://github.com/ccoenraets/OpenFB).
 
 ## Step 3: Add Facebook login
 
-1. Open login.html in the **www/conference/templates** directory. Add a **Login with Facebook** button right after the 
+1. Open login.html in the **conference/www/templates** directory. Add a **Login with Facebook** button right after the 
 existing **Log 
 In** button: 
 
